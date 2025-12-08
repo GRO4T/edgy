@@ -1,0 +1,28 @@
+set quiet
+
+default:
+    just --list
+
+start_local_mongo:
+    docker run --name edgy-mongo -d -p 27017:27017 mongo:8.2.2-noble
+
+build:
+    go build
+
+run: build
+    ./edgy
+
+test:
+    go test
+
+lint:
+    go vet
+
+[no-quiet]
+fmt:
+	test -z $(gofmt -l .) || gofmt -l . | false
+
+[no-quiet]
+fmt_fix:
+	gofmt -s -w .
+
