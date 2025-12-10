@@ -28,3 +28,4 @@
 ## Resources
 
 - https://bytebytego.com/courses/system-design-interview/design-youtube
+- https://community.akamai.com/customers/s/article/How-to-make-a-simple-CDN-for-testing?language=en_US

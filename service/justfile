@@ -6,6 +6,9 @@ default:
 start_local_mongo:
     docker run --name edgy-mongo -d -p 27017:27017 mongo:8.2.2-noble
 
+start_local_cdn:
+    docker run --name edgy-cdn -d -p 8080:80 nginx:1.29.3-alpine
+
 build:
     go build
 
