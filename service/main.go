@@ -13,7 +13,11 @@ import (
 )
 
 func getMongoClient() (*mongo.Client, error) {
-	return mongo.Connect(options.Client().ApplyURI("mongodb://localhost:27017"))
+	mongoURI := os.Getenv("MONGO_URI")
+	if mongoURI == "" {
+		mongoURI = "mongodb://localhost:27017"
+	}
+	return mongo.Connect(options.Client().ApplyURI(mongoURI))
 }
 
 func main() {
